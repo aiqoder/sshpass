@@ -1,0 +1,8 @@
+build/
+*.exe
+*.dll
+*.so
+*.out
+.env
+vendor/
+.DS_Store
