@@ -27,7 +27,11 @@ jobs:
           go-version-file: go.mod
 
       - name: Test
-        run: CGO_ENABLED=0 go test ./...
+        env:
+          CGO_ENABLED: "0"
+        run: go test ./...
 
       - name: Build
-        run: CGO_ENABLED=0 go build -o sshpass${{ matrix.os == 'windows-latest' && '.exe' || '' }} ./cmd/sshpass
+        env:
+          CGO_ENABLED: "0"
+        run: go build -o sshpass${{ matrix.os == 'windows-latest' && '.exe' || '' }} ./cmd/sshpass
